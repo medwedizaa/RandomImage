@@ -2,6 +2,9 @@ package com.example.randomimage
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.Orientation
+import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.example.randomimage.databinding.ActivityMainBinding
 
 class MainActivity: AppCompatActivity() {
@@ -20,7 +23,13 @@ class MainActivity: AppCompatActivity() {
             "other string",
             "cat",
             "dog",
-            "sunshine"
+            "sunshine",
         )
+
+        binding.myList.layoutManager = LinearLayoutManager(this@MainActivity)
+        val myAdapter = MyListAdapter()
+        binding.myList.adapter = myAdapter
+
+        myAdapter.setList(data)
     }
 }
